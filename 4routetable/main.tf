@@ -131,7 +131,7 @@ resource "aws_route_table_association" "chicago_vpc_private2_route_table_associa
 }
 
 # Wait for NAT gateways to be fully created before proceeding
-resource "null_resource" "wait_for_nat_gateways" {
+resource "null_resource" "delay_nat_gateways" {
   depends_on = [
     aws_nat_gateway.detroit_nat_gw1,
     aws_nat_gateway.chicago_nat_gw1
@@ -143,5 +143,5 @@ resource "null_resource" "wait_for_nat_gateways" {
 }
 
 output "nat_gateways_ready" {
-  value = null_resource.wait_for_nat_gateways.id
+  value = null_resource.delay_nat_gateways.id
 }
