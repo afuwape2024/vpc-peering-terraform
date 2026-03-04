@@ -99,3 +99,10 @@ module "vpc_peering" {
   detroit_vpc_igw = module.internet_gateway.detroit_vpc_igw
   chicago_vpc_igw = module.internet_gateway.chicago_vpc_igw
 }
+
+module "ec2" {
+  source = "./6ec2"
+  detroit_vpc_public_subnet = module.detriot_vpc.detroit_vpc_public_subnet
+  detroit_vpc_public2_subnet = module.detriot_vpc.detroit_vpc_public2_subnet
+  detroit_vpc_public_sg = module.security_group.detroit_vpc_public_sg
+}

@@ -29,3 +29,4 @@ variable "chicago_vpc_private_subnet" {}
 variable "chicago_vpc_public2_subnet" {}
 variable "chicago_vpc_private2_subnet" {}
 variable "chicago_vpc_igw" {}
+
