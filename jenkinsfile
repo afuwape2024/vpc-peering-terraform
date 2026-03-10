@@ -1,0 +1,25 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Clone') {
+            steps {
+                git branch: 'main', url: 'https://github.com/afuwape2024/vpc-peering-terraform.git'
+            }
+        }
+
+        stage('terraform init') {
+            steps {
+                echo 'Terraform init stage running'
+                sh 'cd all_resource && terraform init'
+            }
+        }
+
+        stage('terraform plan') {
+            steps {
+                echo 'Terraform plan stage running'
+                sh 'cd all_resource && terraform plan'
+            }
+        }
+    }
+}
